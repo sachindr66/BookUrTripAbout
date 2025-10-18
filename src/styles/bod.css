@@ -1,0 +1,357 @@
+/* Board of Directors Section */
+.board-of-directors {
+  position: relative;
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Management Grid */
+.management-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+  justify-items: center;
+}
+
+
+
+/* Management Card */
+.management-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--background-card);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 4px 20px var(--shadow-light);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary-color);
+  width: 100%;
+  padding: 2rem 1rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.management-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.management-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+/* Profile Image */
+/* .profile-image {
+  display: flex;
+  justify-content: center;
+} */
+
+.management-img {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--border-radius-round);
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 4px 16px var(--shadow-color);
+  transition: transform 0.3s ease;
+}
+
+.management-card:hover .management-img {
+  transform: scale(1.05);
+}
+
+/* Card Content */
+.bod-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.person-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.person-role {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Button styles are now handled globally in theme.css */
+ .bod-btn {
+  margin-top: 2rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--background-card);
+  border-radius: var(--border-radius-medium);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--background-muted);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--background-muted);
+  border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
+}
+
+.modal-profile-image {
+  flex-shrink: 0;
+}
+
+.modal-profile-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius-round);
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.modal-profile-info {
+  flex: 1;
+}
+
+.modal-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-details p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.modal-details strong {
+  font-weight: 600;
+}
+
+/* Modal Sections */
+.modal-sections {
+  padding: 1rem 2rem 2rem;
+}
+
+.modal-section {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.section-header {
+  width: 100%;
+  background: var(--background-muted);
+  border: none;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.section-header:hover {
+  background: var(--border-light);
+}
+
+.section-header.active {
+  background: var(--primary-color);
+  color: var(--text-light);
+}
+
+.section-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.section-header.active .section-arrow {
+  transform: rotate(180deg);
+}
+
+.section-content {
+  background: var(--background-card);
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.section-content ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.section-content li {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  
+  .person-name {
+    font-size: 1.2rem;
+  }
+
+
+
+  /* Modal Responsive */
+  .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .modal-profile-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-name {
+    font-size: 1.5rem;
+  }
+
+  .modal-sections {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  
+  .management-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+  }
+  
+  .management-card {
+    padding: 1rem;
+  }
+  
+  .management-img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  /* Button responsive styles are handled globally */
+
+  /* Modal Mobile */
+  .modal-content {
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .modal-header {
+    padding: 1.5rem;
+  }
+
+  .modal-sections {
+    padding: 0.5rem 1rem 1rem;
+  }
+}
+  

@@ -1,0 +1,246 @@
+.hidden-component {
+  width: 100%;
+  height: 100%;
+  height: auto;
+  opacity: 0;
+  will-change: transform, opacity; /* Performance optimization */
+}
+
+/* Default animation - only when no specific animation class is present */
+.hidden-component.default {
+  transform: scale(0.9) translateY(40px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.hidden-component.default.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Left Animation */
+.hidden-component.left {
+  transform: translateX(-60%) scale(0.95);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hidden-component.visible.left {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+/* Right Animation */
+.hidden-component.right {
+  transform: translateX(60%) scale(0.95);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hidden-component.visible.right {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+/* Flip Animation */
+.hidden-component.flip {
+  transform: perspective(1000px) rotateY(180deg) scale(0.8);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden-component.visible.flip {
+  transform: perspective(1000px) rotateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Up Animation */
+.hidden-component.up {
+  transform: translateY(10%) scale(0.95);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+}
+
+.hidden-component.visible.up {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Down Animation */
+.hidden-component.down {
+  transform: translateY(-100%) scale(0.95);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+}
+
+.hidden-component.visible.down {
+  transform: translateY(0%) scale(1);
+  opacity: 1;
+}
+
+/* Zoom Animation */
+.hidden-component.zoom {
+  transform: scale(0.5);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden-component.visible.zoom {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Bounce Animation */
+.hidden-component.bounce {
+  transform: scale(0.3) translateY(100px);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hidden-component.visible.bounce {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Slide Up with Fade (Default enhanced) */
+.hidden-component.slide-up {
+  transform: translateY(60px) scale(0.95);
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hidden-component.visible.slide-up {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Fade Only */
+.hidden-component.fade {
+  transform: scale(1);
+  opacity: 0;
+  transition: opacity 0.9s ease-in-out;
+}
+
+.hidden-component.visible.fade {
+  opacity: 1;
+}
+
+/* Rotate Animation */
+.hidden-component.rotate {
+  transform: rotate(-180deg) scale(0.5);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden-component.visible.rotate {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+}
+
+/* Staggered Animation Support */
+.hidden-component.stagger-1 { transition-delay: 0.1s; }
+.hidden-component.stagger-2 { transition-delay: 0.2s; }
+.hidden-component.stagger-3 { transition-delay: 0.3s; }
+.hidden-component.stagger-4 { transition-delay: 0.4s; }
+.hidden-component.stagger-5 { transition-delay: 0.5s; }
+.hidden-component.stagger-6 { transition-delay: 0.6s; }
+
+/* Quick Animations */
+.hidden-component.quick {
+  transition-duration: 0.4s;
+}
+
+/* Slow Animations */
+.hidden-component.slow {
+  transition-duration: 1.2s;
+}
+
+/* fadeInUp Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Animation Feature - New Feature */
+.hidden-component.card-animation {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden-component.card-animation.visible {
+  transform: translateY(0);
+  opacity: 1;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Make cards inside visible when using card animation */
+.hidden-component.card-animation .service-card,
+.hidden-component.card-animation .feature-card.glassmorphism {
+  opacity: 1;
+  transform: none;
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .hidden-component {
+    transition: opacity 0.4s ease;
+    transform: none !important;
+  }
+  
+  .hidden-component.visible {
+    opacity: 1;
+  }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  .hidden-component {
+    will-change: auto;
+  }
+  
+  .hidden-component.up,
+  .hidden-component.down,
+  .hidden-component.left,
+  .hidden-component.right {
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .hidden-component.visible.up,
+  .hidden-component.visible.down,
+  .hidden-component.visible.left,
+  .hidden-component.visible.right {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .hidden-component.flip {
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .hidden-component.visible.flip {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  /* Optimize card animations for mobile */
+  .hidden-component.card-animation {
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+  }
+  
+  .hidden-component.card-animation.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,364 @@
+.careers-page {
+  margin: 0 auto;
+}
+
+.careers-section{
+  display: flex;
+  align-items: stretch; /* Text & image same height */
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px;
+}
+
+
+.careers-text h3 {
+  margin-top: 20px;
+}
+
+.careers-text p {
+  color: var(--text-subtle);
+}
+
+.careers-image {
+  flex: 1;
+  display: flex;
+}
+
+.careers-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes image auto match text height */
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Benefits Section - Simple Grid */
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  background: var(--background-card);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(213, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  height: 100%;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+
+.benefit-icon {
+  font-size: 3.5rem;
+}
+
+
+
+.benefit-card p {
+  color: var(--text-muted);
+}
+
+/* Job Openings Section - Simple Design */
+
+/* Featured Job */
+.featured-job {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  padding: 2rem;
+  border-radius: var(--border-radius-medium);
+  text-align: center;
+  margin-bottom: 3rem;
+  box-shadow: 0 15px 35px rgba(213, 0, 0, 0.2);
+  transition: all var(--transition-speed);
+}
+
+.featured-job:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(213, 0, 0, 0.3);
+}
+
+
+
+.featured-job h3 {
+  opacity: 0.9;
+}
+
+.featured-job h4 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.featured-job p {
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+}
+
+.job-card {
+  background: var(--background-card);
+  border-radius: var(--border-radius-medium);
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px var(--shadow-dark);
+  transition: all var(--transition-speed);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--primary-light);
+  border-radius: 3px 0 0 3px;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px var(--shadow-color);
+  border-color: var(--primary-light);
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.job-icon {
+  font-size: 2.5rem;
+}
+
+.job-title {
+  font-weight: 700;
+}
+
+.job-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.job-meta-item strong {
+  color: var(--text-dark);
+  margin-right: 0.5rem;
+}
+
+.job-description {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.job-requirements {
+  margin-bottom: 2rem;
+}
+
+.job-requirements strong {
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.job-requirements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.job-requirements li {
+  color: var(--text-muted);
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.job-requirements li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-light);
+  font-weight: bold;
+}
+
+.apply-button {
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  width: 100%;
+  font-size: 1rem;
+}
+
+.apply-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(213, 0, 0, 0.3);
+}
+
+/* Final CTA Section - Simple Design */
+.careers-cta {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  padding: 4rem;
+  text-align: center;
+}
+
+
+
+.careers-cta p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  
+  .careers-section {
+    flex-direction: column;
+  }
+
+  .careers-image {
+    margin-top: 20px;
+    height: 300px; /* fixed height for mobile */
+  }
+  
+  .job-meta {
+    grid-template-columns: 1fr;
+  }
+  
+  .careers-cta {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+ 
+  .benefits-grid{
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .benefit-card{
+    padding-bottom: 1rem;
+    gap: 0.6rem;
+  }
+
+  .benefit-icon {
+    font-size: 2.6rem;
+  }
+
+  .benefit-card p{
+    font-size: 14px;
+  }
+
+
+  .featured-job {
+    padding: 1rem;
+  }
+
+  .featured-job h4{
+    font-size:1.6rem ;
+  }
+
+  
+  .jobs-grid{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .job-header{
+    gap: 0.5rem;
+  }
+  .job-icon{
+    font-size: 2.4rem;
+  }
+  
+  .job-card {
+    padding: 1rem;
+  }
+
+  .careers-cta {
+    padding:2rem;
+  }
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
